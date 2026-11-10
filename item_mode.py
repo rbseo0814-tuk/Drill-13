@@ -45,7 +45,7 @@ def handle_events():
             elif event.key == SDLK_2:
                 play_mode.boy.item = 'BigBall'
                 game_framework.pop_mode()
-            elif event.key == SDLK_ESCAPE:
+            elif event.key in (SDLK_i, SDLK_ESCAPE):
                 # 선택하지 않고 닫기
                 game_framework.pop_mode()
 
