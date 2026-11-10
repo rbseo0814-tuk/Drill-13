@@ -4,11 +4,12 @@ import game_world
 
 
 class Ball:
-    image = None
+    images = {}  # 크기별 이미지를 한 번만 로드해서 공유
 
     def __init__(self, x, y, velocity):
-        if Ball.image is None:
-            Ball.image = load_image('ball21x21.png')
+        if 'small' not in Ball.images:
+            Ball.images['small'] = load_image('ball21x21.png')
+        self.image = Ball.images['small']
         self.x, self.y = x, y
         self.velocity = velocity
 
