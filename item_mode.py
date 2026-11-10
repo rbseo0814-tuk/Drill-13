@@ -48,6 +48,9 @@ def handle_events():
             elif event.key in (SDLK_i, SDLK_ESCAPE):
                 # 선택하지 않고 닫기
                 game_framework.pop_mode()
+            else:
+                continue
+            return  # 모드가 바뀌었으므로 남은 이벤트는 처리하지 않는다
 
 
 def pause():
