@@ -2,6 +2,7 @@ from pico2d import *
 
 import game_framework
 import game_world
+import play_mode
 
 image = None
 
@@ -34,9 +35,19 @@ def handle_events():
     for event in events:
         if event.type == SDL_QUIT:
             game_framework.quit()
-        elif event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE:
-            # 선택하지 않고 닫기
-            game_framework.pop_mode()
+        elif event.type == SDL_KEYDOWN:
+            if event.key == SDLK_0:
+                play_mode.boy.item = None
+                game_framework.pop_mode()
+            elif event.key == SDLK_1:
+                play_mode.boy.item = 'SmallBall'
+                game_framework.pop_mode()
+            elif event.key == SDLK_2:
+                play_mode.boy.item = 'BigBall'
+                game_framework.pop_mode()
+            elif event.key == SDLK_ESCAPE:
+                # 선택하지 않고 닫기
+                game_framework.pop_mode()
 
 
 def pause():
